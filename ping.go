@@ -50,7 +50,7 @@ func sendHandshake(ctx context.Context, wire *bufio.ReadWriter, hostport Server)
 	don(wire.WriteString(hostport.Host))
 
 	// server port
-	do(binary.Write(wire, binary.BigEndian, hostport.Port))
+	do(binary.Write(wire, binary.BigEndian, int16(hostport.Port)))
 
 	// status
 	do(wire.WriteByte(0x01))
