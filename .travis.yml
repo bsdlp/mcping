@@ -1,0 +1,11 @@
+os: linux
+dist: focal
+language: go
+go:
+    - 1.15.x
+services:
+    - docker
+
+script:
+    - docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v1.31.0 golangci-lint run -v
+    - go test -race -v ./...
