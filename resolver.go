@@ -20,7 +20,7 @@ func ResolveMinecraftHostPort(ctx context.Context, resolver *net.Resolver, serve
 	servers = make([]string, len(addrs))
 	for i := range servers {
 		port := strconv.FormatUint(uint64(addrs[i].Port), 10)
-		servers[i] = addrs[i].Target + ":" + port
+		servers[i] = net.JoinHostPort(addrs[i].Target, port)
 	}
 	return servers, nil
 }
