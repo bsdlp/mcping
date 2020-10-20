@@ -42,7 +42,7 @@ func (suite *IntegrationTests) TestMultipleRecord() {
 }
 
 func (suite *IntegrationTests) TestPing() {
-	hostports, err := mcping.ResolveMinecraftHostPort(context.Background(), nil, "mc.sep.gg")
+	hostports, err := mcping.ResolveMinecraftHostPort(context.Background(), nil, "mc.hypixel.net")
 	suite.Require().NoError(err)
 	conn, err := net.Dial("tcp", net.JoinHostPort(hostports[0].Host, strconv.FormatUint(uint64(hostports[0].Port), 10)))
 	suite.Assert().NoError(err)
